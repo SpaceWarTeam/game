@@ -50,17 +50,17 @@ function Update () {
 	if( Input.GetKeyDown(KeyCode.Space) ) {
 		newState = (States["isJump"]) ? lastState : "isJump";
 		setNewState(newState);
-		animator = GetComponent(Animator);
+		animator.setBool(newState, true);
 	}
 	if( Input.GetMouseButtonDown(2) ) {
 		newState = (States["isAttack"]) ? "isIdle" : "isAttack";
 		setNewState(newState);
-		animator = GetComponent(Animator);
+		animator.setBool(newState, true);
 	}
 	if( Input.GetKeyDown(KeyCode.LeftShift) ) {
 		newState = (States["isRun"]) ? "isIdle" : "isRun";
 		setNewState(newState);
-		animator = GetComponent(Animator);
+		animator.setBool(newState, true);
 	}
 }
 
