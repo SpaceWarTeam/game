@@ -43,9 +43,14 @@ function Start () {
 function Update () {
 	var newState : String = "";
 	if( Input.GetKeyDown(KeyCode.LeftControl) ) {
-		newState = (States["isSit"]) ? lastState : "isSit";
+		if(States["isSit"]) { 
+			newState = lastState;
+			animator.SetBool("isSit", false);
+		} else {
+			newState = "isSit";
+			animator.SetBool("isSit", true);
+		}
 		setNewState(newState);
-		animator.SetBool(lastState, false);
 	}
 	if( Input.GetKeyDown(KeyCode.Space) ) {
 		newState = (States["isJump"]) ? lastState : "isJump";
