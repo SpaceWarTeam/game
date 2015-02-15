@@ -52,14 +52,24 @@ function Update () {
 		}
 		setNewState(newState);
 	}
+	if( Input.GetKeyDown(KeyCode.Space) ) {
+		newState = (States["isJump"]) ? lastState : "isJump";
+		setNewState(newState);
+		animator.SetBool(lastState, false);
+	}
+	if( Input.GetMouseButtonDown(2) ) {
+		newState = (States["isAttack"]) ? "isIdle" : "isAttack";
+		setNewState(newState);
+		animator.SetBool(lastState, false);
+	}
+	if( Input.GetKeyUp(KeyCode.LeftShift) ) {
+		newState = lastState;
+		animator.SetBool("isRun", false);
+		setNewState(newState);
+	}
 	if( Input.GetKeyDown(KeyCode.LeftShift) ) {
-		if(States["isRun"]) { 
-			newState = lastState;
-			animator.SetBool("isRun", false);
-		} else {
-			newState = "isRun";
-			animator.SetBool("isRun", true);
-		}
+		newState = "isRun";
+		animator.SetBool("isRun", true);
 		setNewState(newState);
 	}
 }
