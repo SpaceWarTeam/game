@@ -42,6 +42,8 @@ function Start () {
 
 function Update () {
 	var newState : String = "";
+
+	// SIT
 	if( Input.GetKeyDown(KeyCode.LeftControl) ) {
 		if(States["isSit"]) { 
 			newState = lastState;
@@ -52,16 +54,8 @@ function Update () {
 		}
 		setNewState(newState);
 	}
-	if( Input.GetKeyDown(KeyCode.Space) ) {
-		newState = (States["isJump"]) ? lastState : "isJump";
-		setNewState(newState);
-		animator.SetBool(lastState, false);
-	}
-	if( Input.GetMouseButtonDown(2) ) {
-		newState = (States["isAttack"]) ? "isIdle" : "isAttack";
-		setNewState(newState);
-		animator.SetBool(lastState, false);
-	}
+
+	// RUN
 	if( Input.GetKeyUp(KeyCode.LeftShift) ) {
 		newState = lastState;
 		animator.SetBool("isRun", false);
@@ -70,6 +64,18 @@ function Update () {
 	if( Input.GetKeyDown(KeyCode.LeftShift) ) {
 		newState = "isRun";
 		animator.SetBool("isRun", true);
+		setNewState(newState);
+	}
+	
+	// JUMP
+	if( Input.GetKeyDown( KeyCode.Space ) {
+		newState = "isJump";
+		animator.SetBool("isJump", true);
+		setNewState(newState);
+	}
+	if( Input.GetKeyUp( KeyCode.Space ) {
+		newState = "isIdle";
+		animator.SetBool("isJump", false);
 		setNewState(newState);
 	}
 }
