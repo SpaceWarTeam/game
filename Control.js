@@ -1,4 +1,3 @@
-#pragma strict
 //var isIdle : boolean = true; // состояние бездействия
 //var isRun : boolean = false; // состояние бега
 //var isSit : boolean = false; // состояние присяда
@@ -38,6 +37,7 @@ var animPropName2 : String = ""; // Названание свойства для
 function Start () {
 	Debug.Log("start script");
 	animator = GetComponent(Animator);
+	Debug.Log(animator);
 }
 
 function Update () {
