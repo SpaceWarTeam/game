@@ -5,6 +5,7 @@
 //var isAttack : boolean = false; // состояние атаки
 //var isJump : boolean = false; // состояние прыжка
 
+internal var animator;
 var direction : float = 0f; // направление
 var speed : float =  0f; // скорость
 
@@ -36,6 +37,7 @@ var animPropName2 : String = ""; // Названание свойства для
 
 function Start () {
 	Debug.Log("start script");
+	animator = GetComponent(Animator);
 }
 
 function Update () {
@@ -43,18 +45,22 @@ function Update () {
 	if( Input.GetKeyDown(KeyCode.LeftControl) ) {
 		newState = (States["isSit"]) ? lastState : "isSit";
 		setNewState(newState);
+		animator.setBool(newState, true);
 	}
 	if( Input.GetKeyDown(KeyCode.Space) ) {
 		newState = (States["isJump"]) ? lastState : "isJump";
 		setNewState(newState);
+		animator = GetComponent(Animator);
 	}
 	if( Input.GetMouseButtonDown(2) ) {
 		newState = (States["isAttack"]) ? "isIdle" : "isAttack";
 		setNewState(newState);
+		animator = GetComponent(Animator);
 	}
 	if( Input.GetKeyDown(KeyCode.LeftShift) ) {
 		newState = (States["isRun"]) ? "isIdle" : "isRun";
 		setNewState(newState);
+		animator = GetComponent(Animator);
 	}
 }
 
