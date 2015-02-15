@@ -45,22 +45,22 @@ function Update () {
 	if( Input.GetKeyDown(KeyCode.LeftControl) ) {
 		newState = (States["isSit"]) ? lastState : "isSit";
 		setNewState(newState);
-		animator.setBool(lastState, false);
+		animator.SetBool(lastState, false);
 	}
 	if( Input.GetKeyDown(KeyCode.Space) ) {
 		newState = (States["isJump"]) ? lastState : "isJump";
 		setNewState(newState);
-		animator.setBool(lastState, false);
+		animator.SetBool(lastState, false);
 	}
 	if( Input.GetMouseButtonDown(2) ) {
 		newState = (States["isAttack"]) ? "isIdle" : "isAttack";
 		setNewState(newState);
-		animator.setBool(lastState, false);
+		animator.SetBool(lastState, false);
 	}
 	if( Input.GetKeyDown(KeyCode.LeftShift) ) {
 		newState = (States["isRun"]) ? "isIdle" : "isRun";
 		setNewState(newState);
-		aanimator.setBool(lastState, false);
+		animator.SetBool(lastState, false);
 	}
 }
 
