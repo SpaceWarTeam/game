@@ -35,9 +35,7 @@ var animPropName2 : String = ""; // Названание свойства для
 
 
 function Start () {
-	Debug.Log("start script");
 	animator = GetComponent(Animator);
-	Debug.Log(animator);
 }
 
 function Update () {
